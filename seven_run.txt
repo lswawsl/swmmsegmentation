@@ -1,0 +1,6 @@
+1. configs/ 找配置文件 拷贝路径到tools/train.py进行配置
+2. 直接运行，在work_dirs/下找到一个完整的配置文件，拷贝到configs/下
+3. 修改num_classes、data
+4. 修改mmseg\datasets\（voc.py） 中的类名和调色盘
+5. 修改mmseg\core\evaluation\class_names.py中相应类的类别
+6. tools\browse_dataset.py可视化进入网络的训练集
