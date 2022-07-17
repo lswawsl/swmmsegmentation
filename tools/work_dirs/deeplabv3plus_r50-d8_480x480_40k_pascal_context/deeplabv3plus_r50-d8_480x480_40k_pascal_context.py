@@ -1,5 +1,3 @@
-# num_classes
-# data
 norm_cfg = dict(type='SyncBN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -24,7 +22,7 @@ model = dict(
         c1_in_channels=256,
         c1_channels=48,
         dropout_ratio=0.1,
-        num_classes=2,
+        num_classes=60,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
@@ -37,7 +35,7 @@ model = dict(
         num_convs=1,
         concat_input=False,
         dropout_ratio=0.1,
-        num_classes=2,
+        num_classes=60,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
@@ -45,7 +43,7 @@ model = dict(
     train_cfg=dict(),
     test_cfg=dict(mode='slide', crop_size=(480, 480), stride=(320, 320)))
 dataset_type = 'PascalContextDataset'
-data_root = 'E:\XDU\code\mmlab\mmsegmentation-master\data\my_cell_voc/'
+data_root = 'data/VOCdevkit/VOC2010/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 img_scale = (520, 520)
@@ -89,10 +87,10 @@ data = dict(
     workers_per_gpu=4,
     train=dict(
         type='PascalContextDataset',
-        data_root='E:\XDU\code\mmlab\mmsegmentation-master\data\my_cell_voc/',
+        data_root='data/VOCdevkit/VOC2010/',
         img_dir='JPEGImages',
         ann_dir='SegmentationClassContext',
-        split='train.txt',
+        split='ImageSets/SegmentationContext/train.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations'),
@@ -111,10 +109,10 @@ data = dict(
         ]),
     val=dict(
         type='PascalContextDataset',
-        data_root='E:\XDU\code\mmlab\mmsegmentation-master\data\my_cell_voc/',
+        data_root='data/VOCdevkit/VOC2010/',
         img_dir='JPEGImages',
         ann_dir='SegmentationClassContext',
-        split='val.txt',
+        split='ImageSets/SegmentationContext/val.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -135,10 +133,10 @@ data = dict(
         ]),
     test=dict(
         type='PascalContextDataset',
-        data_root='E:\XDU\code\mmlab\mmsegmentation-master\data\my_cell_voc/',
+        data_root='data/VOCdevkit/VOC2010/',
         img_dir='JPEGImages',
         ann_dir='SegmentationClassContext',
-        split='test.txt',
+        split='ImageSets/SegmentationContext/val.txt',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
