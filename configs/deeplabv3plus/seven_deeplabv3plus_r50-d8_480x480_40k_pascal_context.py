@@ -85,8 +85,8 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=4,
+    samples_per_gpu=3,
+    workers_per_gpu=1,
     train=dict(
         type='PascalContextDataset',
         data_root='E:\XDU\code\mmlab\mmsegmentation-master\data\my_cell_voc/',
@@ -158,18 +158,18 @@ data = dict(
                 ])
         ]))
 log_config = dict(
-    interval=50, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+    interval=10, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
+load_from = 'E:/XDU/code/github/swmmsegmentation/tools/work_dirs/deeplabv3plus_r50-d8_480x480_40k_pascal_context/deeplabv3plus_r50-d8_512x512_20k_voc12aug_20200617_102323-aad58ef1.pth'
 resume_from = None
 workflow = [('train', 1)]
 cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.004, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
-runner = dict(type='IterBasedRunner', max_iters=40000)
-checkpoint_config = dict(by_epoch=False, interval=4000)
+runner = dict(type='IterBasedRunner', max_iters=1000)
+checkpoint_config = dict(by_epoch=False, interval=1000)
 evaluation = dict(interval=4000, metric='mIoU', pre_eval=True)
 work_dir = './work_dirs\deeplabv3plus_r50-d8_480x480_40k_pascal_context'
 gpu_ids = [0]

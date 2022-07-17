@@ -20,7 +20,7 @@ from mmseg.models import build_segmentor
 from mmseg.utils import (collect_env, get_device, get_root_logger,
                          setup_multi_processes)
 
-# E:\XDU\code\mmlab\mmsegmentation-master\configs\deeplabv3plus\seven_deeplabv3plus_r50-d8_480x480_40k_pascal_context.py
+# E:\XDU\code\github\swmmsegmentation\configs\deeplabv3plus\seven_deeplabv3plus_r50-d8_480x480_40k_pascal_context.py
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a segmentor')
     parser.add_argument('config', help='train config file path')
